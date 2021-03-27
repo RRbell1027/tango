@@ -26,17 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        question10 = (Button) findViewById(R.id.question10);
-        question50 = (Button) findViewById(R.id.question50);
-        question100 = (Button) findViewById(R.id.question100);
-        chinese = (Button) findViewById(R.id.chineseQuiz);
-        hannji = (Button) findViewById(R.id.hannjiQuiz);
-        list = (ListView) findViewById(R.id.list);
-
-        intent = new Intent(MainActivity.this, Question.class);
-
+        setViews();
         setAdapter();
+        
+        intent = new Intent(MainActivity.this, Question.class);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -51,7 +44,16 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(adapter);
     }
 
-    public void ChooseNumber(View v) {
+    void setViews() {
+        question10 = (Button) findViewById(R.id.question10);
+        question50 = (Button) findViewById(R.id.question50);
+        question100 = (Button) findViewById(R.id.question100);
+        chinese = (Button) findViewById(R.id.chineseQuiz);
+        hannji = (Button) findViewById(R.id.hannjiQuiz);
+        list = (ListView) findViewById(R.id.list);
+    }
+
+  public void ChooseNumber(View v) {
         int value = 0;
         switch (v.getId()) {
             case R.id.question10:
