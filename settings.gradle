@@ -1,0 +1,2 @@
+rootProject.name='N5 Tango'
+include ':app'

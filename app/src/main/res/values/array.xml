@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="chinses">
+        <item>說</item><item>賣</item><item>推/按/壓</item><item>買</item><item>聽/問</item>
+        <item>寫</item><item>借(出)</item><item>切割/中斷</item><item>消除/擦掉</item><item>知道</item>
+        <item>吸</item><item>拿出/提出</item><item>拍照/攝影</item><item>拿取</item><item>脫(衣物等)</item>
+        <item>喝</item><item>穿(褲子等)</item><item>穿(鞋子等)</item><item>張貼</item><item>拉/引誘/抽</item>
+        <item>彈奏</item><item>吹</item><item>等待</item><item>拿/持有</item><item>呼叫/稱呼</item>
+        <item>讀/唸</item><item>洗(手.物品)</item><item>唱</item><item>拜託/請求</item><item>使用</item>
+        <item>製作/做</item><item>學習/用功</item><item>說/談/討論</item><item>磨/刷(牙)</item><item>交給/渡過</item>
+        <item>回答/返回</item><item>做/玩</item><item>撐(傘)</item><item>弄丟/丟失	</item><item>戴(帽子等)</item>
+        <item>給</item><item>拷貝/影印</item><item>提問</item><item>洗(衣物)</item><item>打掃</item>
+        <item>學習/用功</item><item>練習</item><item>穿(上衣等)</item><item>看</item><item>淋浴/蒙受</item>
+        <item>借(入)</item><item>打開</item><item>放入</item><item>繫上/減縮</item><item>關閉</item>
+        <item>吃</item><item>讓看/展現</item><item>教導/告訴</item><item>任職/工作</item><item>並列/排列</item>
+        <item>戴上/花費/撥打(電話)</item><item>抬/舉/舉行</item><item>安裝/佩帶</item><item>放置</item>
+    </string-array>
+    <string-array name="hannji">
+        <item>言う</item><item>売る</item><item>押す</item><item>買う</item><item>聞く</item>
+        <item>書く</item><item>貸す</item><item>切る</item><item>消す</item><item>知る</item>
+        <item>吸う</item><item>出す</item><item>撮る</item><item>取る</item><item>脱ぐ</item>
+        <item>飲む</item><item>穿く</item><item>履く</item><item>貼る</item><item>引く</item>
+        <item>弾く</item><item>吹く</item><item>待つ</item><item>持つ</item><item>呼ぶ</item>
+        <item>読む</item><item>洗う</item><item>歌う</item><item>頼む</item><item>使う</item>
+        <item>作る</item><item>習う</item><item>話す</item><item>磨く</item><item>渡す</item>
+        <item>返す</item><item>やる</item><item>さす</item><item>なくす</item><item>かぶる</item>
+        <item>くださる</item><item>コピーする</item><item>質問する</item><item>洗濯する</item><item>掃除する</item>
+        <item>勉強する</item><item>練習する</item><item>着る</item><item>見る</item><item>浴びる</item>
+        <item>借りる</item><item>開ける</item><item>入れる</item><item>締める</item><item>閉める</item>
+        <item>食べる</item><item>見せる</item><item>教える</item><item>勤める</item><item>並べる</item>
+        <item>かける</item><item>あげる</item><item>つける</item><item>置く</item>
+    </string-array>
+    <string-array name="hiragana">
+        <item>いう</item><item>うる</item><item>おす</item><item>かう</item><item>きく</item>
+        <item>かく</item><item>かす</item><item>きる</item><item>けす</item><item>しる</item>
+        <item>すう</item><item>だす</item><item>とる</item><item>とる</item><item>ぬぐ</item>
+        <item>のむ</item><item>はく</item><item>はく</item><item>はる</item><item>ひく</item>
+        <item>ひく</item><item>ふく</item><item>まつ</item><item>もつ</item><item>よぶ</item>
+        <item>よむ</item><item>あらう</item><item>うたう</item><item>たのむ</item><item>つかう</item>
+        <item>つくる</item><item>ならう</item><item>はなす</item><item>みがく</item><item>わたす</item>
+        <item>かえす</item><item>やる</item><item>さす</item><item>なくす</item><item>かぶる</item>
+        <item>くださる</item><item>こぴーする</item><item>しつもんする</item><item>せんたくする</item><item>そうじする</item>
+        <item>べんきょうする</item><item>れんしゅうする</item><item>きる</item><item>みる</item><item>あびる</item>
+        <item>かりる</item><item>あける</item><item>いれる</item><item>しめる</item><item>しめる</item>
+        <item>たべる</item><item>みせる</item><item>おしえる</item><item>つとめる</item><item>ならべる</item>
+        <item>かける</item><item>あげる</item><item>つける</item><item>おく</item>
+    </string-array>
+</resources>
