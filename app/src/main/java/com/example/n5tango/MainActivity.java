@@ -15,11 +15,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
+
     String ListItemName[] = new String[]{"新增單字集", "查看單字集", "練習"};
 
     Intent intent;
 
-    public Button question10, question50, question100, chinese, hannji;
     public ListView list;
 
     @Override
@@ -28,11 +28,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setViews();
         setAdapter();
-        
-        intent = new Intent(MainActivity.this, Question.class);
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent = new Intent(MainActivity.this, WordSet.class);
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                }
+                startActivity(intent);
 
             }
         });
@@ -40,20 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
     void setAdapter() {
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ListItemName);
+                new ArrayAdapter<String>(this, R.layout.listitem_1, ListItemName);
         list.setAdapter(adapter);
+
     }
 
     void setViews() {
-        question10 = (Button) findViewById(R.id.question10);
-        question50 = (Button) findViewById(R.id.question50);
-        question100 = (Button) findViewById(R.id.question100);
-        chinese = (Button) findViewById(R.id.chineseQuiz);
-        hannji = (Button) findViewById(R.id.hannjiQuiz);
         list = (ListView) findViewById(R.id.list);
     }
 
-  public void ChooseNumber(View v) {
+/*    public void ChooseNumber(View v) {
         int value = 0;
         switch (v.getId()) {
             case R.id.question10:
@@ -90,5 +95,5 @@ public class MainActivity extends AppCompatActivity {
         question10.setVisibility(View.VISIBLE);
         question50.setVisibility(View.VISIBLE);
         question100.setVisibility(View.VISIBLE);
-    }
+    }*/
 }
