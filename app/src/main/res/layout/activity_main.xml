@@ -6,12 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_test"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tabLayoutMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </androidx.fragment.app.FragmentContainerView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItemBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI計算機" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItemOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="訂餐" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItemSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="設定" />
+
+    </com.google.android.material.tabs.TabLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

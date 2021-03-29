@@ -1,6 +1,8 @@
 package com.example.n5tango;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.LauncherActivity;
 import android.content.Intent;
@@ -14,49 +16,53 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.google.android.material.tabs.TabLayout;
+
 public class MainActivity extends AppCompatActivity {
 
     String ListItemName[] = new String[]{"新增單字集", "查看單字集", "練習"};
 
     Intent intent;
 
-    public ListView list;
+    private FragmentMainTesting fragmentMainTesting = new FragmentMainTesting();
+    private FragmentMainAddition fragmentMainAddition = new FragmentMainAddition();
+    private FragmentMainCase fragmentMainCase = new FragmentMainCase();
+    private TabLayout tabLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setViews();
-        setAdapter();
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                intent = new Intent(MainActivity.this, WordSet.class);
-                switch (position) {
-                    case 0:
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                }
-                startActivity(intent);
 
-            }
-        });
-    }
-
-    void setAdapter() {
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, R.layout.listitem_1, ListItemName);
-        list.setAdapter(adapter);
 
     }
 
     void setViews() {
-        list = (ListView) findViewById(R.id.list);
+        tabLayout = (TabLayout)findViewById(R.id.tabLayoutMain);
     }
+
+    void setFragment(int position) {
+        FragmentManager fragmentManager =getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_test,fragmentMainAddition,"add");
+        fragmentTransaction.add(R.id.fragment_test,fragmentMainTesting,"test");
+        fragmentTransaction.add(R.id.fragment_test,fragmentMainCase,"case");
+        switch (position) {
+            case 0:
+                fragmentTransaction.hide(fragmentMainAddition);
+                fragmentTransaction.hide(fragmentMainTesting);
+                break;
+            case  1:
+                fragmentTransaction.hide(fragmentMainCase);
+                fragmentTransaction.hide(fragmentMainTesting);
+            case 2:
+                fragmentTransaction.hide(fragmentMainAddition);
+                fragmentTransaction.hide(fragmentMainCase);
+        }
+    }
+
 
 /*    public void ChooseNumber(View v) {
         int value = 0;
