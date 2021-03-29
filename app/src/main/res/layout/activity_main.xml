@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_test"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tabLayoutMain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="match_parent">
 
-    </androidx.fragment.app.FragmentContainerView>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItemBMI"
-            android:layout_width="wrap_content"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_test"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BMI計算機" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItemOrder"
-            android:layout_width="wrap_content"
+        </androidx.fragment.app.FragmentContainerView>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutMain"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="訂餐" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItemSetting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="設定" />
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemCase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="單字集" />
 
-    </com.google.android.material.tabs.TabLayout>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="測驗" />
 
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabItemAddition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新增單字集" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.tabs.TabLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

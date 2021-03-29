@@ -28,40 +28,82 @@ public class MainActivity extends AppCompatActivity {
     private FragmentMainAddition fragmentMainAddition = new FragmentMainAddition();
     private FragmentMainCase fragmentMainCase = new FragmentMainCase();
     private TabLayout tabLayout;
+    int now = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //定義所有Views
+        setViews();
+        //初始設定Fragment
+        FragmentManager fragmentManager =getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_test,fragmentMainAddition,"add");
+        fragmentTransaction.add(R.id.fragment_test,fragmentMainTesting,"test");
+        fragmentTransaction.add(R.id.fragment_test,fragmentMainCase,"case");
+        fragmentTransaction.hide(fragmentMainAddition);
+        fragmentTransaction.hide(fragmentMainTesting);
+        fragmentTransaction.commit();
 
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //切換Fragment
+                FragmentChange(tab.getPosition());
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     void setViews() {
         tabLayout = (TabLayout)findViewById(R.id.tabLayoutMain);
     }
 
-    void setFragment(int position) {
+    //切換Fragment
+    void FragmentChange(int position) {
         FragmentManager fragmentManager =getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_test,fragmentMainAddition,"add");
-        fragmentTransaction.add(R.id.fragment_test,fragmentMainTesting,"test");
-        fragmentTransaction.add(R.id.fragment_test,fragmentMainCase,"case");
-        switch (position) {
+        //隱藏目前Fragment
+        switch (now) {
             case 0:
-                fragmentTransaction.hide(fragmentMainAddition);
-                fragmentTransaction.hide(fragmentMainTesting);
+                fragmentTransaction.hide(fragmentMainCase);
                 break;
             case  1:
-                fragmentTransaction.hide(fragmentMainCase);
                 fragmentTransaction.hide(fragmentMainTesting);
+                break;
             case 2:
                 fragmentTransaction.hide(fragmentMainAddition);
-                fragmentTransaction.hide(fragmentMainCase);
+                break;
         }
+        //顯示目標Fragment
+        switch (position) {
+            case 0:
+                fragmentTransaction.show(fragmentMainCase);
+                break;
+            case  1:
+                fragmentTransaction.show(fragmentMainTesting);
+                break;
+            case 2:
+                fragmentTransaction.show(fragmentMainAddition);
+                break;
+        }
+        fragmentTransaction.commit();
+        //更新目前所在的Fragment
+        now = position;
     }
+
+
 
 
 /*    public void ChooseNumber(View v) {
