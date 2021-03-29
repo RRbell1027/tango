@@ -5,7 +5,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.LauncherActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
@@ -18,18 +20,17 @@ import android.widget.ListView;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
-
-    String ListItemName[] = new String[]{"新增單字集", "查看單字集", "練習"};
-
-    Intent intent;
 
     private FragmentMainTesting fragmentMainTesting = new FragmentMainTesting();
     private FragmentMainAddition fragmentMainAddition = new FragmentMainAddition();
     private FragmentMainCase fragmentMainCase = new FragmentMainCase();
     private TabLayout tabLayout;
     int now = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         //定義所有Views
         setViews();
         //初始設定Fragment
-        FragmentManager fragmentManager =getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_test,fragmentMainAddition,"add");
-        fragmentTransaction.add(R.id.fragment_test,fragmentMainTesting,"test");
-        fragmentTransaction.add(R.id.fragment_test,fragmentMainCase,"case");
+        fragmentTransaction.add(R.id.fragment_test, fragmentMainAddition, "add");
+        fragmentTransaction.add(R.id.fragment_test, fragmentMainTesting, "test");
+        fragmentTransaction.add(R.id.fragment_test, fragmentMainCase, "case");
         fragmentTransaction.hide(fragmentMainAddition);
         fragmentTransaction.hide(fragmentMainTesting);
         fragmentTransaction.commit();
@@ -67,19 +68,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setViews() {
-        tabLayout = (TabLayout)findViewById(R.id.tabLayoutMain);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayoutMain);
     }
 
     //切換Fragment
     void FragmentChange(int position) {
-        FragmentManager fragmentManager =getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         //隱藏目前Fragment
         switch (now) {
             case 0:
                 fragmentTransaction.hide(fragmentMainCase);
                 break;
-            case  1:
+            case 1:
                 fragmentTransaction.hide(fragmentMainTesting);
                 break;
             case 2:
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             case 0:
                 fragmentTransaction.show(fragmentMainCase);
                 break;
-            case  1:
+            case 1:
                 fragmentTransaction.show(fragmentMainTesting);
                 break;
             case 2:

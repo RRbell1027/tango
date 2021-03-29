@@ -6,14 +6,9 @@
     tools:context=".FragmentMainCase">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Here is Case"
-        android:textSize="30sp"
-        android:gravity="center_horizontal"
-        android:id="@+id/fragmentCase"/>
-
-    
+        android:id="@+id/listview"/>
 
 </FrameLayout>
