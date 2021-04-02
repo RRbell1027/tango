@@ -12,6 +12,7 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
@@ -36,35 +38,40 @@ public class FragmentMainCase extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_main_case,container,false);
         listView = (ListView)view.findViewById(R.id.listview);
-        String[] wordSet = new String[]{"Empty"};
-
-        ArrayList<String> arraylist = getWordSet();
-
-        if(arraylist != null) {
-            String[] wordSet1 = new String[arraylist.size()];
-            for (int j=0;j<arraylist.size();j++)
-                wordSet[j] = arraylist.get(j);
-            ListAdapter adapter = new ArrayAdapter<>(this.getContext(),android.R.layout.simple_list_item_1,wordSet1);
+        String[] default_wordSet = getResources().getStringArray(R.array.default_name);
+        ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(default_wordSet));
+        addWordSet(arrayList);
+        String[] wordSet = new String[arrayList.size()];
+        arrayList.toArray(wordSet);
+        if(wordSet!=null) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,wordSet);
             listView.setAdapter(adapter);
         }else {
-            ListAdapter adapter = new ArrayAdapter<>(this.getContext(),android.R.layout.simple_list_item_1,wordSet);
+            String[] empty = new String[]{"Empty"};
+            ArrayAdapter<String > adapter = new ArrayAdapter<String >(getActivity(),android.R.layout.simple_list_item_1,empty);
             listView.setAdapter(adapter);
         }
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            }
+        });
         return view;
     }
 
 
-    private ArrayList<String> getWordSet() {
+    private void addWordSet(ArrayList<String> arrayList) {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("WordSet",Context.MODE_PRIVATE);
         String json = sharedPreferences.getString("NameJson",null);
         if(json != null) {
             Gson gson = new Gson();
             Type type = new TypeToken<ArrayList<String>>() {}.getType();
-            ArrayList<String> arrayList = gson.fromJson(json,type);
-            return arrayList;
+            ArrayList<String> addList = gson.fromJson(json,type);
+            for (int i=0;i<addList.size();i++) {
+                arrayList.add(addList.get(i));
+            }
         }
-        return null;
     }
 }

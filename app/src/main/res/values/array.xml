@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="default_name">
+        <item>N5他動詞</item>
+    </string-array>
+
     <string-array name="chinses">
         <item>說</item><item>賣</item><item>推/按/壓</item><item>買</item><item>聽/問</item>
         <item>寫</item><item>借(出)</item><item>切割/中斷</item><item>消除/擦掉</item><item>知道</item>
